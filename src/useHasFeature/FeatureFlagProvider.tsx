@@ -1,8 +1,8 @@
 import React, { createContext, useEffect, useReducer } from "react";
 import getFeatureFlags from "../mocks/getFeatureFlags";
 
-// O(1) search. Set would be ideal, but it's best to not put
-// mutable data structure that can't be easily shallow copied
+// O(1) search. Set would be ideal, but it's best put
+// data structures that are easy to shallow copy
 const arrayToBooleanObject = (arr: string[]) => Object.fromEntries(arr.map(feature => [feature, true]))
 
 type State = Record<string, boolean>
@@ -14,7 +14,7 @@ const initialState: State = {}
 
 export const FFContext = createContext(initialState)
 
-type reducer = <T extends State>(state: T, action: Action<Partial<T>>) => T
+type reducer = (state: State, action: Action<State>) => State
 
 export default function Provider<P>(Component: React.JSXElementConstructor<P>) {
     const ProviderHoc: React.FC<P> = (props) => {
