@@ -18,10 +18,7 @@ type reducer = (state: State, action: Action<State>) => State
 
 export default function Provider<P = {}>(Component: React.JSXElementConstructor<P>) {
     const ProviderHoc: React.FC<P> = (props) => {
-        const reducer: reducer = (state, action) => ({
-            ...state,
-            ...action.payload
-        })
+        const reducer: reducer = (_, action) => action.payload
         const [state, dispatch] = useReducer(reducer, initialState)
 
         const getAndSetFeatureFlags = async () => {
