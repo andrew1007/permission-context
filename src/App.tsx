@@ -1,5 +1,5 @@
 import './App.css';
-import FeatureFlagProvider from './useFeatureFlag/FeatureFlagProvider';
+import FeatureFlagProvider from './useHasFeature/FeatureFlagProvider';
 import FeatureChecker from './FeatureChecker';
 
 function App() {

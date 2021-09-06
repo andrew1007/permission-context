@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react'
-import useHasFeature from './useFeatureFlag/useHasFeature'
+import useHasFeature from './useHasFeature/useHasFeature'
 
 const FeatureChecker = () => {
     const [text, setText] = useState('')
