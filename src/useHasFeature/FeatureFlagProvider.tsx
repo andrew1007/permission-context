@@ -16,7 +16,7 @@ export const FFContext = createContext(initialState)
 
 type reducer = (state: State, action: Action<State>) => State
 
-export default function Provider<P>(Component: React.JSXElementConstructor<P>) {
+export default function Provider<P = {}>(Component: React.JSXElementConstructor<P>) {
     const ProviderHoc: React.FC<P> = (props) => {
         const reducer: reducer = (state, action) => ({
             ...state,
